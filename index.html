@@ -12,19 +12,19 @@
 				moo.roster_fetch();
 			});
 
-			// What we run after the data comes back
-			function roster_callback(data) {
+			// This function is run after the data comes back
+			function wowGuildReady() {
 				// Populate guild name, level and AP elements
-				moo.name('guild_name', data);
-				moo.level('guild_level', data);
-				moo.ap('guild_ap', data);
+				moo.name('guild_name');
+				moo.level('guild_level');
+				moo.ap('guild_ap');
 			
 				// Dump the roster as a list into the element with id "roster_guild"
-				moo.roster_render_list('roster_guild', data);
+				moo.roster_render_list('roster_guild');
 				
 				// Do the same as above, but in a table format 
 				// (uncomment below and comment the line above to use)
-				//moo.roster_render_table('roster_guild', data);
+				//moo.roster_render_table('roster_guild');
 			}
 		</script>
 	</head>

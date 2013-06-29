@@ -54,6 +54,8 @@ races[22] = "Worgen";		// 22
 races[25] = "Pandaren";		// 25
 races[26] = "Pandaren";		// 26
 
+roster_data = '';
+
 function wowGuild(region, realm, guild) {
 	lregion = region;
 	lrealm = realm;
@@ -78,11 +80,11 @@ function wowGuild(region, realm, guild) {
 		return d;
 	};
 	
-	this.roster_render_list = function(layer, data) {
+	this.roster_render_list = function(layer) {
 		lroster_layer = layer;
 		var chars = '<ul class="roster">';
 
-		$.each(data.members, function (i, da) {
+		$.each(roster_data.members, function (i, da) {
 			chars += '<tr>';
 			chars += roster_char_list(da);
 			chars += '</tr>';
@@ -104,11 +106,11 @@ function wowGuild(region, realm, guild) {
 		return d;
 	};
 
-	this.roster_render_table = function(layer, data) {
+	this.roster_render_table = function(layer) {
 		lroster_layer = layer;
 		var chars = '<table class="roster">';
 
-		$.each(data.members, function (i, da) {
+		$.each(roster_data.members, function (i, da) {
 			chars += '<tr>';
 			chars += roster_char_table(da);
 			chars += '</tr>';
@@ -119,19 +121,19 @@ function wowGuild(region, realm, guild) {
 		$('#' + lroster_layer).append(chars);
 	};
 	
-	this.name = function(layer, data) {
+	this.name = function(layer) {
 		$('#' + layer).empty();
-		$('#' + layer).append(data.name);
+		$('#' + layer).append(roster_data.name);
 	};
 
-	this.level = function(layer, data) {
+	this.level = function(layer) {
 		$('#' + layer).empty();
-		$('#' + layer).append(data.level);
+		$('#' + layer).append(roster_data.level);
 	};
 
-	this.ap = function(layer, data) {
+	this.ap = function(layer) {
 		$('#' + layer).empty();
-		$('#' + layer).append(data.achievementPoints);
+		$('#' + layer).append(roster_data.achievementPoints);
 	};
 	
 	this.roster_fetch = function() {
@@ -139,4 +141,9 @@ function wowGuild(region, realm, guild) {
 			type: 'GET',
 			dataType: 'jsonp'});
 	};
+}
+
+function roster_callback(data) {
+	roster_data = data;
+	wowGuildReady();
 }
