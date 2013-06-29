@@ -9,11 +9,11 @@
 			var moo = new wowGuild('us', 'Saurfang', 'Moodoo');
 
 			$(document).ready(function() {
-				moo.roster('roster_guild');
+				moo.roster_fetch();
 			});
 
 			function roster_callback(data) {
-				moo.roster_render_list(data);
+				moo.roster_render_list('roster_guild', data);
 			}
 		</script>
 	</head>

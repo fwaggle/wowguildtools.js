@@ -69,11 +69,17 @@ function wowGuild(region, realm, guild) {
 		d += '-' + data.character.gender + '.jpg" alt="';
 		d += data.character.name + '" />';
 		d += '<span class="name">' + data.character.name + '</span>';
+		d += '<span class="level">Level ' + data.character.level;
+		d += '</span>';
+		d += '<span class="type">';
+		d += races[data.character.race] + ' ' + classes[data.character.class];
+		d += '</span>';
 		d += '</li>';
 		return d;
 	};
 	
-	this.roster_render_list = function(data) {
+	this.roster_render_list = function(layer, data) {
+		lroster_layer = layer;
 		var chars = '<ul class="roster">';
 
 		$.each(data.members, function (i, da) {
@@ -98,7 +104,8 @@ function wowGuild(region, realm, guild) {
 		return d;
 	};
 
-	this.roster_render_table = function(data) {
+	this.roster_render_table = function(layer, data) {
+		lroster_layer = layer;
 		var chars = '<table class="roster">';
 
 		$.each(data.members, function (i, da) {
@@ -112,8 +119,7 @@ function wowGuild(region, realm, guild) {
 		$('#' + lroster_layer).append(chars);
 	};
 
-	this.roster = function(layer) {
-		lroster_layer = layer;
+	this.roster_fetch = function() {
 		$.ajax({url: 'http://' + region + '.battle.net/api/wow/guild/' + realm + '/' + guild + '?fields=members&jsonp=roster_callback',
 			type: 'GET',
 			dataType: 'jsonp'});
