@@ -6,14 +6,22 @@
 		<script type="text/javascript" id="jsonp_races"></script>
 		<script type="text/javascript" src="wowguildtools.js"></script>
 		<script type="text/javascript">
+			// Instantiate the Guild object, configuring it with your region, realm and guild name
 			var moo = new wowGuild('us', 'Saurfang', 'Moodoo');
 
+			// Tell GuildTools to fetch the roster from Battle.net
 			$(document).ready(function() {
 				moo.roster_fetch();
 			});
 
+			// What we run after the data comes back
 			function roster_callback(data) {
+				// Dump the roster as a list into the element with id "roster_guild"
 				moo.roster_render_list('roster_guild', data);
+				
+				// Do the same as above, but in a table format 
+				// (uncomment below and comment the line above to use)
+				//moo.roster_render_table('roster_guild', data);
 			}
 		</script>
 	</head>
