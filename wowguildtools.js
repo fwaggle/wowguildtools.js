@@ -77,6 +77,7 @@ function wowGuild(region, realm, guild) {
 		d += '<span class="type">';
 		d += races[data.character.race] + ' ' + classes[data.character.class];
 		d += '</span>';
+		d += '<span class="ap">' + data.character.achievementPoints + '</span>';
 		d += '</li>';
 		return d;
 	};
