@@ -118,7 +118,22 @@ function wowGuild(region, realm, guild) {
 		$('#' + lroster_layer).empty();
 		$('#' + lroster_layer).append(chars);
 	};
+	
+	this.name = function(layer, data) {
+		$('#' + layer).empty();
+		$('#' + layer).append(data.name);
+	};
 
+	this.level = function(layer, data) {
+		$('#' + layer).empty();
+		$('#' + layer).append(data.level);
+	};
+
+	this.ap = function(layer, data) {
+		$('#' + layer).empty();
+		$('#' + layer).append(data.achievementPoints);
+	};
+	
 	this.roster_fetch = function() {
 		$.ajax({url: 'http://' + region + '.battle.net/api/wow/guild/' + realm + '/' + guild + '?fields=members&jsonp=roster_callback',
 			type: 'GET',

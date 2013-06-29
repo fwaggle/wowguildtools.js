@@ -16,6 +16,11 @@
 
 			// What we run after the data comes back
 			function roster_callback(data) {
+				// Populate guild name, level and AP elements
+				moo.name('guild_name', data);
+				moo.level('guild_level', data);
+				moo.ap('guild_ap', data);
+			
 				// Dump the roster as a list into the element with id "roster_guild"
 				moo.roster_render_list('roster_guild', data);
 				
@@ -26,6 +31,11 @@
 		</script>
 	</head>
 	<body>
+		<div id="ginfo">
+			<span id="guild_name"></span>
+			<span id="guild_level"></span>
+			<span id="guild_ap"></span>
+		</div>
 		<div id="roster_guild"></div>
 	</body>
 </html>
