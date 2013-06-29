@@ -21,7 +21,8 @@
 ** WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-// Hard coding this stuff to avoid extra API calls, but it will need updating should the API change?
+// Hard coding this stuff to avoid extra API calls, but it will need 
+// updating should the API change?
 // This should be current as of 5.3
 var classes = Array("Unknown", 
 		    "Warrior",		// 1
