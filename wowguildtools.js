@@ -61,9 +61,25 @@ function wowGuild(region, realm, guild) {
 	lregion = region;
 	lrealm = realm;
 	lguild = guild;
+	
+	lnews = false;
+	lachievements = false;
+	lchallenges = false;
 
 	lroster_layer = 'roster';
 
+	this.news = function(value) {
+		lnews = value;
+	};
+	
+	this.achievements = function(value) {
+		lachievements = value;
+	};
+	
+	this.challenges = function(value) {
+		lchallenges = value;
+	};
+	
 	var roster_char_list = function(data) {
 		d = '<li class="wow_char">';
 		d += '<img src="http://' + lregion + '.battle.net/static-render/';
@@ -146,8 +162,63 @@ function wowGuild(region, realm, guild) {
 		$('#' + layer).append(roster_data.achievementPoints);
 	};
 	
-	this.roster_fetch = function() {
-		$.ajax({url: 'http://' + region + '.battle.net/api/wow/guild/' + realm + '/' + guild + '?fields=members&jsonp=roster_callback',
+	var news_item_list = function(data) {
+		ts = new Date(data.timestamp);
+		out = '<li><span class="ts">'
+		out += ts.toLocaleTimeString();
+		out += ' ';
+		out += ts.toLocaleDateString();
+		out += '</span>';
+		
+		out += '<span class="event">';
+		switch (data.type) {
+			case 'playerAchievement':
+				out += data.character + ' has earned the achievement ';
+				out += data.achievement.title;
+				break;
+			case 'guildAchievement':
+				out += 'The guild has earned the achievement ';
+				out += data.achievement.title;
+				break;
+			case 'guildLevel':
+				out += 'The Guild has reached level ';
+				out += data.levelUp;
+				break;
+			default:
+				return('');
+				break;
+		}
+		out += '</li></span>';
+		
+		return(out);
+	};
+	
+	this.news_render_list = function(layer) {
+		out = '<ul>';
+		$.each(roster_data.news, function (i, da) {
+			out += news_item_list(da);
+		});
+		out += '</ul>';
+		
+		$('#' + layer).empty();
+		$('#' + layer).append(out);
+	}
+	
+	this.fetch = function() {
+		// Figure out what fields to grab
+		fields = 'members';
+		if (lnews) { fields += ',news'; }
+		if (lachievements == true) { fields += ',achievements'; }
+		if (lchallenges) { fields += ',challenge'; }
+
+		// Construct battle.net URL
+		wowurl = 'http://' + region + '.battle.net/api/wow/guild/' + realm;
+		wowurl += '/' + guild + '?fields=' + fields;
+		wowurl += '&jsonp=roster_callback';
+		
+		
+		// Fetch the data
+		$.ajax({url: wowurl,
 			type: 'GET',
 			dataType: 'jsonp'});
 	};

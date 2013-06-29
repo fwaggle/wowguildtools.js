@@ -1,28 +1,32 @@
-#roster_guild ul {
+#roster ul {
 	list-style-type: none;
 }
 
-#roster_guild li {
+#roster li {
 	display: block;
 	width: 250px;
 	height: 100px;
 	float: left;
 }
 
-#roster_guild img {
+#roster img {
 	float: left;
 	margin-right: 5px;
 }
 
-#roster_guild  .name {
+#roster  .name {
 	font-weight: bold;
 	display: block;
 }
 
-#roster_guild .level {
+#roster .level {
 	display: block;
 }
 
-#roster_guild .ap {
+#roster .ap {
 	display: block;
+}
+
+h2 {
+	clear: both;
 }

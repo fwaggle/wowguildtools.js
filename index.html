@@ -10,7 +10,10 @@
 
 			// Tell GuildTools to fetch the roster from Battle.net
 			$(document).ready(function() {
-				moo.roster_fetch();
+				moo.news(true);
+				moo.achievements(false);
+				moo.challenges(false);
+				moo.fetch();
 			});
 
 			// This function is run after the data comes back
@@ -21,20 +24,26 @@
 				moo.ap('guild_ap');
 			
 				// Dump the roster as a list into the element with id "roster_guild"
-				moo.roster_render_list('roster_guild');
+				moo.roster_render_list('roster');
 				
 				// Do the same as above, but in a table format 
 				// (uncomment below and comment the line above to use)
-				//moo.roster_render_table('roster_guild');
+				//moo.roster_render_table('roster');
+				
+				// Render the news as a list
+				moo.news_render_list('news');
 			}
 		</script>
 	</head>
 	<body>
 		<div id="ginfo">
-			<span id="guild_name"></span>
+			<h1 id="guild_name"></h1>
 			<span id="guild_level"></span>
 			<span id="guild_ap"></span>
 		</div>
-		<div id="roster_guild"></div>
+		<h2>Roster</h2>
+		<div id="roster"></div>
+		<h2>News</h2>
+		<div id="news"></div>
 	</body>
 </html>
