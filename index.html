@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script type="text/javascript" id="jsonp_roster"></script>
+		<script type="text/javascript" id="jsonp_classes"></script>
+		<script type="text/javascript" id="jsonp_races"></script>
+		<script type="text/javascript" src="wowguildtools.js"></script>
+		<script type="text/javascript">
+			var moo = new wowGuild('us', 'Saurfang', 'Moodoo');
+
+			$(document).ready(function() {
+				moo.roster('roster_guild');
+			});
+
+			function roster_callback(data) {
+				moo.roster_render_list(data);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="roster_guild"></div>
+	</body>
+</html>
