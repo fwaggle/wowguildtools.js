@@ -1,0 +1,8 @@
+WoW Guild Tools
+
+Guild website tools for World of Warcraft in jQuery.
+
+This is mostly as a learning exercise for jQuery, so the code is probably
+really poor quality, but I figured someone else may have a use for it.
+
+The index.html shows how simple it is to actually make use of this.

@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="wowguildtools.css" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script type="text/javascript" id="jsonp_roster"></script>
+		<script type="text/javascript" src="wowguildtools.js"></script>
+		<script type="text/javascript">
+			// Instantiate the Guild object, configuring it with your region, realm and guild name
+			var moo = new wowGuild('us', 'Saurfang', 'Moodoo');
+
+			// Tell GuildTools to fetch the roster from Battle.net
+			$(document).ready(function() {
+				moo.roster_fetch();
+			});
+
+			// This function is run after the data comes back
+			function wowGuildReady() {
+				// Populate guild name, level and AP elements
+				moo.name('guild_name');
+				moo.level('guild_level');
+				moo.ap('guild_ap');
+			
+				// Dump the roster as a list into the element with id "roster_guild"
+				moo.roster_render_list('roster_guild');
+				
+				// Do the same as above, but in a table format 
+				// (uncomment below and comment the line above to use)
+				//moo.roster_render_table('roster_guild');
+			}
+		</script>
+	</head>
+	<body>
+		<div id="ginfo">
+			<span id="guild_name"></span>
+			<span id="guild_level"></span>
+			<span id="guild_ap"></span>
+		</div>
+		<div id="roster_guild"></div>
+	</body>
+</html>

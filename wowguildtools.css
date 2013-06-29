@@ -1,0 +1,28 @@
+#roster_guild ul {
+	list-style-type: none;
+}
+
+#roster_guild li {
+	display: block;
+	width: 250px;
+	height: 100px;
+	float: left;
+}
+
+#roster_guild img {
+	float: left;
+	margin-right: 5px;
+}
+
+#roster_guild  .name {
+	font-weight: bold;
+	display: block;
+}
+
+#roster_guild .level {
+	display: block;
+}
+
+#roster_guild .ap {
+	display: block;
+}
