@@ -86,6 +86,10 @@ function wowGuild(region, realm, guild) {
 		lroster_layer = layer;
 		var chars = '<ul class="roster">';
 
+		roster_data.members.sort(function(a,b) {
+			return b.character.level - a.character.level;
+		});
+
 		$.each(roster_data.members, function (i, da) {
 			chars += '<tr>';
 			chars += roster_char_list(da);
@@ -112,6 +116,10 @@ function wowGuild(region, realm, guild) {
 		lroster_layer = layer;
 		var chars = '<table class="roster">';
 
+		roster_data.members.sort(function(a,b) {
+			return b.character.level - a.character.level;
+		});
+		
 		$.each(roster_data.members, function (i, da) {
 			chars += '<tr>';
 			chars += roster_char_table(da);
