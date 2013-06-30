@@ -223,11 +223,13 @@ function wowGuild(region, realm, guild) {
 		switch (data.type) {
 			case 'playerAchievement':
 				out += data.character + ' has earned the achievement ';
-				out += data.achievement.title;
+				out += '<span class="achievement">';
+				out += data.achievement.title + '</span>';
 				break;
 			case 'guildAchievement':
 				out += 'The guild has earned the achievement ';
-				out += data.achievement.title;
+				out += '<span class="achievement">';
+				out += data.achievement.title + '</span>';
 				break;
 			case 'guildLevel':
 				out += 'The Guild has reached level ';

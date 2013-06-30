@@ -23,14 +23,14 @@
 				moo.level('guild_level');
 				moo.ap('guild_ap');
 			
-				// Dump the roster as a list into the element with id "roster_guild"
+				// Dump the roster as a list into the element with id "groster"
 				moo.rosterSort('name');
 				moo.showAP(true);
-				moo.roster_render_list('roster');
+				moo.roster_render_list('groster');
 				
 				// Do the same as above, but in a table format 
 				// (uncomment below and comment the line above to use)
-				//moo.roster_render_table('roster');
+				//moo.roster_render_table('groster');
 				
 				// Render the news as a list
 				moo.news_render_list('news');
@@ -44,7 +44,7 @@
 			Achievement Points: <span id="guild_ap"></span>
 		</div>
 		<h2>Roster</h2>
-		<div id="roster"></div>
+		<div id="groster"></div>
 		<h2>News</h2>
 		<div id="news"></div>
 	</body>
