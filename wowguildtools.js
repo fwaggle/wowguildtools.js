@@ -66,8 +66,6 @@ function wowGuild(region, realm, guild) {
 	lachievements = false;
 	lchallenges = false;
 
-	lroster_layer = 'roster';
-
 	this.news = function(value) {
 		lnews = value;
 	};
@@ -99,7 +97,6 @@ function wowGuild(region, realm, guild) {
 	};
 	
 	this.roster_render_list = function(layer) {
-		lroster_layer = layer;
 		var chars = '<ul class="roster">';
 
 		roster_data.members.sort(function(a,b) {
@@ -113,8 +110,8 @@ function wowGuild(region, realm, guild) {
 		});
 		chars += '</ul>';
 
-		$('#' + lroster_layer).empty();
-		$('#' + lroster_layer).append(chars);
+		$('#' + layer).empty();
+		$('#' + layer).append(chars);
 	};
 	
 	var roster_char_table = function(data) {
@@ -129,7 +126,6 @@ function wowGuild(region, realm, guild) {
 	};
 
 	this.roster_render_table = function(layer) {
-		lroster_layer = layer;
 		var chars = '<table class="roster">';
 
 		roster_data.members.sort(function(a,b) {
@@ -143,8 +139,8 @@ function wowGuild(region, realm, guild) {
 		});
 		chars += '</table>';
 
-		$('#' + lroster_layer).empty();
-		$('#' + lroster_layer).append(chars);
+		$('#' + layer).empty();
+		$('#' + layer).append(chars);
 	};
 	
 	this.name = function(layer) {
