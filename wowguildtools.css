@@ -30,3 +30,11 @@
 h2 {
 	clear: both;
 }
+
+#gnews ul {
+	list-style-type: none;
+}
+
+#gnews .ts {
+	margin-right: 0.6em;
+}
