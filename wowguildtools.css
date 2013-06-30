@@ -1,32 +1,40 @@
-#roster ul {
+#groster ul {
 	list-style-type: none;
 }
 
-#roster li {
+#groster li {
 	display: block;
 	width: 250px;
 	height: 100px;
 	float: left;
 }
 
-#roster img {
+#groster img {
 	float: left;
 	margin-right: 5px;
 }
 
-#roster  .name {
+#groster  .name {
 	font-weight: bold;
 	display: block;
 }
 
-#roster .level {
+#groster .level {
 	display: block;
 }
 
-#roster .ap {
+#groster .ap {
 	display: block;
 }
 
 h2 {
 	clear: both;
+}
+
+#gnews ul {
+	list-style-type: none;
+}
+
+#gnews .ts {
+	margin-right: 0.6em;
 }
